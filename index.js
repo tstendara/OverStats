@@ -2,8 +2,10 @@ const express = require('express')
 const path = require('path')
 const overwatch = require('overwatch-api')
 const PORT = process.env.PORT || 5000
+const parser = require('body-parser')
 
 express()
+  .use(parser())
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
