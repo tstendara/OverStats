@@ -11,7 +11,7 @@ express()
   .post('/overwatch', (req, res) => {
     console.log(req.body);
     const platform = req.body.platform;
-    const region = req.body.region;
+    const region = req.body.origin;
     const tag = req.body.username;
     
     overwatch.getProfile(platform, region, tag, (err, results) => {
