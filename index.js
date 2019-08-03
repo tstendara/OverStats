@@ -23,6 +23,10 @@ express()
             res.send(results);
         }
     });
+  })
+  .get('/OWLLiveMatch', (req, res) => {
+    if(err) { console.log(err); }
+    else{ res.send(results); }
+  })
 
-})
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
