@@ -24,9 +24,12 @@ express()
         }
     });
   })
-  .get('/OWLLiveMatch', (err, res) => {
-    if(err) { console.log(err); }
-    else{ res.send(results); }
+  .get('/OWLLiveMatch', (req, res) => {
+    
+    overwatch.owl.getLiveMatch((err, matchInfo) => {
+      if(err) { console.log(err); }
+      else { res.send(matchInfo); }
+    })
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
