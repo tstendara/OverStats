@@ -31,5 +31,9 @@ express()
       else { res.send(matchInfo); }
     })
   })
+  .get('/OWLStandings', (req, standings) => {
+    if(err) { console.log(err) }
+    else { res.send(standings) }
+  })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
