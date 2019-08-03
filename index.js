@@ -24,7 +24,7 @@ express()
         }
     });
   })
-  .get('/OWLLiveMatch', (req, res) => {
+  .get('/OWLLiveMatch', (err, res) => {
     if(err) { console.log(err); }
     else{ res.send(results); }
   })
