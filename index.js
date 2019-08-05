@@ -37,14 +37,16 @@ express()
       if(err) { console.log(err); }
       else { res.send(standings); }
     })
-    
   })
-  .post('/OWLStats', (req, res) => {
-    const prof = req.body.account;
 
-    overwatch.owl.stat(prof, (err, stats) => {
-      if(err) { console.log(err); }
-      else { res.send(stats); }
+  .post('/OWStats', (req, res) => {
+    const platform = req.body.platform;
+    const region = req.body.origin;
+    const tag = req.body.username;
+
+    overwatch.getStats(platform, region, tag, (err, stats) => {
+      if(err) { console.log(err) }
+      else { res.send(stats)}
     })
   })
 
