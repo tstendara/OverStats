@@ -34,10 +34,18 @@ express()
   .get('/OWLStandings', (req, res) => {
 
     overwatch.owl.getStandings((err, standings) => {
-      if(err) { console.log(err) }
-      else { res.send(standings) }
+      if(err) { console.log(err); }
+      else { res.send(standings); }
     })
     
+  })
+  .post('/OWLStats', (req, res) => {
+    const prof = req.body.account;
+
+    overwatch.owl.stat(prof, (err, stats) => {
+      if(err) { console.log(err); }
+      else { res.send(stats); }
+    })
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
