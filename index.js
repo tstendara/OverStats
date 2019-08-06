@@ -3,6 +3,7 @@ const path = require('path')
 const overwatch = require('overwatch-api')
 const PORT = process.env.PORT || 5000
 const parser = require('body-parser')
+const ow = require('overwatch-stats-api');
 
 express()
   .use(parser())
@@ -24,16 +25,14 @@ express()
         }
     });
   })
-  .post('/stats', (req, res) => {
+  .post('/stats', async (req, res) => {
     
     let platform = req.body.platform;
-    let region = req.body.origin;
-    let tag = req.body.username;
-
-    overwatch.getStats(platform, region, tag, (err, stats) => {
-      if(err) { console.log(err) }
-      else { res.send(stats) }
-    })
+    
+    const stats =  await ow.getHeroStats(username, platform);
+    res.send(stats);
+    
+    
   })
   .get('/OWLLiveMatch', (req, res) => {
     
@@ -49,6 +48,8 @@ express()
       else { res.send(standings); }
     })
   })
+
+
 
 
 
