@@ -40,13 +40,14 @@ express()
   })
 
   .post('/OWStats', (req, res) => {
+    console.log(req.body);
     const platform = req.body.platform;
     const region = req.body.origin;
     const tag = req.body.username;
 
     overwatch.getStats(platform, region, tag, (err, stats) => {
       if(err) { console.log(err) }
-      else { res.send(stats)}
+      else { res.send(stats) }
     })
   })
 
