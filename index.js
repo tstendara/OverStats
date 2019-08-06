@@ -37,9 +37,9 @@ express()
   // })
 
   .post('/stats', (req, res) => {
-    let tag = req.body.username;
+    // let tag = req.body.username;
 
-    ow.player(tag).then(player => {
+    ow.player('dafran-21192').then(player => {
       res.send(player);
     })
 
