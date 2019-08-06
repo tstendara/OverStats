@@ -24,6 +24,17 @@ express()
         }
     });
   })
+  .post('/stats', (req, res) => {
+    
+    let platform = req.body.platform;
+    let region = req.body.origin;
+    let tag = req.body.username;
+
+    overwatch.getStats(platform, region, tag, (err, stats) => {
+      if(err) { console.log(err) }
+      else { res.send(stats) }
+    })
+  })
   .get('/OWLLiveMatch', (req, res) => {
     
     overwatch.owl.getLiveMatch((err, matchInfo) => {
@@ -39,16 +50,6 @@ express()
     })
   })
 
-  .post('/OWStats', (req, res) => {
-    
-    let platform = req.body.platform;
-    let region = req.body.origin;
-    let tag = req.body.username;
 
-    overwatch.getStats(platform, region, tag, (err, stats) => {
-      if(err) { console.log(err) }
-      else { res.send(stats) }
-    })
-  })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
