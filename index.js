@@ -39,12 +39,10 @@ express()
     let platform = req.body.platform;
     let tag = req.body.username;
 
-    ow.getHeroStats(tag, platform, (err, results) => {
-      if(err) { console.log(err) }
-      else { res.send(results) }
+    ow.getHeroStats(tag, platform, (err, stats) => {
+      if(err) { console.log(err); }
+      else { res.send(stats); }  
     })
-    
-    
   })
 
   .get('/OWLLiveMatch', (req, res) => {
