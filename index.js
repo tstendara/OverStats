@@ -34,7 +34,7 @@ express()
     res.send(basicStats);
   })
 
-  .post('/stats', async (req, res) => {
+  .post('/stats', (req, res) => {
     
     let platform = req.body.platform;
     let tag = req.body.username;
