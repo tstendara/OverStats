@@ -33,17 +33,20 @@ express()
     const basicStats = await ow.getBasicInfo(tag, platform);
     res.send(basicStats);
   })
-  
+
   .post('/stats', async (req, res) => {
     
     let platform = req.body.platform;
     let tag = req.body.username;
 
-    const stats =  await ow.getHeroStats(tag, platform);
-    res.send(stats);
+    ow.getHeroStats(tag, platform, (err, results) => {
+      if(err) { console.log(err) }
+      else { res.send(results) }
+    })
     
     
   })
+
   .get('/OWLLiveMatch', (req, res) => {
     
     overwatch.owl.getLiveMatch((err, matchInfo) => {
