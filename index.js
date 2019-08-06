@@ -3,7 +3,9 @@ const path = require('path')
 const overwatch = require('overwatch-api')
 const PORT = process.env.PORT || 5000
 const parser = require('body-parser')
-const ow = require('overwatch-stats-api');
+// const ow = require('overwatch-stats-api');
+const overSmash = require('oversmash');
+const ow = oversmash();
 
 express()
   .use(parser())
@@ -26,23 +28,21 @@ express()
     });
   })
 
-  .post('/basicStats', async(req, res) => {
-    let platform = req.body.platform;
-    let tag = req.body.username;
+  // .post('/basicStats', async(req, res) => {
+  //   let platform = req.body.platform;
+  //   let tag = req.body.username;
 
-    const basicStats = await ow.getBasicInfo(tag, platform);
-    res.send(basicStats);
-  })
+  //   const basicStats = await ow.getBasicInfo(tag, platform);
+  //   res.send(basicStats);
+  // })
 
   .post('/stats', (req, res) => {
-    
-    let platform = req.body.platform;
     let tag = req.body.username;
 
-    ow.getHeroStats(tag, platform, (err, stats) => {
-      if(err) { console.log(err); }
-      else { res.send(stats); }  
+    ow.player(tag).then(player => {
+      res.send(player);
     })
+
   })
 
   .get('/OWLLiveMatch', (req, res) => {
