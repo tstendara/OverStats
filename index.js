@@ -28,8 +28,9 @@ express()
   .post('/stats', async (req, res) => {
     
     let platform = req.body.platform;
-    
-    const stats =  await ow.getHeroStats(username, platform);
+    let tag = req.body.username;
+
+    const stats =  await ow.getHeroStats(tag, platform);
     res.send(stats);
     
     
