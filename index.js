@@ -12,6 +12,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+
   .post('/overwatch', (req, res) => {
     console.log(req.body);
     let platform = req.body.platform;
@@ -35,10 +36,11 @@ express()
   //   res.send(basicStats);
   // })
 
-  .get('/stats', async (req, res) => {
+  .post('/stats', async (req, res) => {
     let tag = req.body.username;
+    let platform = rew.body.platform; 
 
-    const results = await ow.getBasicInfo('dafran-21192', 'pc');
+    const results = await ow.getBasicInfo(tag, platform);
     res.send(results);
 
   })
