@@ -43,11 +43,9 @@ express()
 
     //doesnt work with getherostats but works with basic info
     try {
-
       const mostPlayed = await ow.getMostPlayed(tag, platform);
       const results = await ow.getHeroStats(tag, platform);
       const stats = {};
-
       
       const mP = mostPlayed.competitive;
         const findMostPlayed = () => {
