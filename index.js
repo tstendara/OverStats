@@ -38,7 +38,7 @@ express()
 
   .post('/stats', async (req, res) => {
     let tag = req.body.username;
-    let platform = rew.body.platform; 
+    let platform = req.body.platform; 
 
     const results = await ow.getBasicInfo(tag, platform);
     res.send(results);
