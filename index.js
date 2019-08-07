@@ -43,11 +43,42 @@ express()
 
     //doesnt work with getherostats but works with basic info
     try {
+
+      const mostPlayed = await ow.getMostPlayed(tag, platform);
       const results = await ow.getHeroStats(tag, platform);
       const stats = {};
-      
-      stats['averageStats'] = results.competitive.overall.average;
 
+      
+      const mP = mostPlayed.competitive;
+        const findMostPlayed = () => {
+        let greatest = ':';
+        let final = {};
+        for(let hero in mP){
+
+          let curTime = mP[hero].time.split(':');
+          let greatestTime = greatest.split(':');
+
+          if(curTime.length > greatestTime.length){
+            final = {};
+            greatest = mP[hero].time;
+            final[`${hero}`] = mP[hero];
+          }else if(greatestTime.length === curTime.length){
+            //[ '10', '12' ] [ '0', '0' ]
+            for(i=0; i<greatestTime; i++){
+              if(greatestTime[i] < curTime[i]){
+                final = {};
+                greatest = mP[hero].time;
+                final[`${hero}`] = mP[hero];
+              }
+            }
+          }
+        }
+        return final;
+      }
+
+      stats['averageStats'] = results.competitive.overall.average;
+      stats['MostPlayed'] = findMostPlayed();
+      
       console.log(stats);
       res.send(stats);
     } 
