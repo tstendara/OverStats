@@ -39,10 +39,19 @@ express()
   .post('/stats', async (req, res) => {
     let tag = req.body.username;
     let platform = req.body.platform; 
+    console.log(tag, platform);
 
-    const results = await ow.getHeroStats(tag, platform);
-    res.send(results);
-
+    //doesnt work with getherostats but works with basic info
+    try {
+      const results = await ow.getHeroStats(tag, platform);
+      // const { stats } = averageStats;
+      const stats = {};
+      stats['averageStats'] = results.competitive.overall.average;
+      console.log(stats);
+      res.send(stats);
+    } catch(error) {
+      console.log(error);
+    }
   })
 
   .get('/OWLLiveMatch', (req, res) => {
