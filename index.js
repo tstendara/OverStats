@@ -9,9 +9,6 @@ const ow = require('overwatch-stats-api');
 express()
   .use(parser())
   .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
 //oiwhrqgoihjqeroighoqerhig okeqrogbjwerb
   .post('/overwatch', (req, res) => {
     console.log(req.body);
