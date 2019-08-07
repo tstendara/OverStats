@@ -47,23 +47,23 @@ express()
       const mP = mostPlayed.competitive;
         const findMostPlayed = () => {
         let greatest = ':';
-        let final = {};
+        let final = [];
         for(let hero in mP){
 
           let curTime = mP[hero].time.split(':');
           let greatestTime = greatest.split(':');
 
           if(curTime.length > greatestTime.length){
-            final = {};
+            final = [];
             greatest = mP[hero].time;
-            final[`${hero}`] = mP[hero];
+            final.push(hero, mP[hero])
           }else if(greatestTime.length === curTime.length){
             //[ '10', '12' ] [ '0', '0' ]
             for(i=0; i<greatestTime; i++){
               if(greatestTime[i] < curTime[i]){
-                final = {};
+                final = [];
                 greatest = mP[hero].time;
-                final[`${hero}`] = mP[hero];
+                final.push(hero, mP[hero])
               }
             }
           }
