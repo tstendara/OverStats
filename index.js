@@ -35,13 +35,11 @@ express()
   //   res.send(basicStats);
   // })
 
-  .get('/stats', (req, res) => {
+  .get('/stats', async (req, res) => {
     let tag = req.body.username;
 
-    ow.getBasicInfo('dafran-21192', 'pc', (err, suc) => {
-      if(err) {console.log(err); }
-      else {res.send(suc); }
-    })
+    const results = await ow.getBasicInfo('dafran-21192', 'pc');
+    res.send(results);
 
   })
 
