@@ -3,7 +3,7 @@ const path = require('path')
 const overwatch = require('overwatch-api')
 const PORT = process.env.PORT || 5000
 const parser = require('body-parser')
-// const ow = require('overwatch-stats-api');
+const ow = require('overwatch-stats-api');
 
 
 express()
@@ -35,11 +35,12 @@ express()
   //   res.send(basicStats);
   // })
 
-  .post('/stats', (req, res) => {
-    // let tag = req.body.username;
+  .get('/stats', (req, res) => {
+    let tag = req.body.username;
 
-    ow.player('dafran-21192').then(player => {
-      res.send(player);
+    ow.getBasicInfo('dafran-21192', 'pc', (err, suc) => {
+      if(err) {console.log(err); }
+      else {res.send(suc); }
     })
 
   })
