@@ -40,7 +40,7 @@ express()
     let tag = req.body.username;
     let platform = req.body.platform; 
 
-    const results = await ow.getBasicInfo(tag, platform);
+    const results = await ow.getHeroStats(tag, platform);
     res.send(results);
 
   })
