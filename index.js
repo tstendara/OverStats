@@ -4,8 +4,7 @@ const overwatch = require('overwatch-api')
 const PORT = process.env.PORT || 5000
 const parser = require('body-parser')
 // const ow = require('overwatch-stats-api');
-const overSmash = require('oversmash');
-const ow = oversmash();
+
 
 express()
   .use(parser())
