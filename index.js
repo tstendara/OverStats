@@ -11,7 +11,8 @@ console.log(leaderBoard);
 express()
   .use(parser())
   .use(express.static(path.join(__dirname, 'public')))
-//oiwhrqgoihjqeroighoqerhig okeqrogbjwerb
+
+
   .post('/overwatch', (req, res) => {
     console.log(req.body);
     let platform = req.body.platform;
