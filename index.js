@@ -4,7 +4,9 @@ const overwatch = require('overwatch-api')
 const PORT = process.env.PORT || 5000
 const parser = require('body-parser')
 const ow = require('overwatch-stats-api');
+const leaderBoard = require('./top10Players');
 
+console.log(leaderBoard);
 
 express()
   .use(parser())
