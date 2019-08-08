@@ -12,6 +12,9 @@ express()
   .use(parser())
   .use(express.static(path.join(__dirname, 'public')))
 
+  .get('/top10', (req, res) => {
+    res.send(leaderBoard);
+  })
 
   .post('/overwatch', (req, res) => {
     console.log(req.body);
