@@ -6,8 +6,6 @@ const parser = require('body-parser')
 const ow = require('overwatch-stats-api');
 const leaderBoard = require('./top10Players');
 
-console.log(leaderBoard);
-
 express()
   .use(parser())
   .use(express.static(path.join(__dirname, 'public')))
@@ -34,9 +32,7 @@ express()
   .post('/stats', async (req, res) => {
     let tag = req.body.username;
     let platform = req.body.platform; 
-    console.log(tag, platform);
 
-    //doesnt work with getherostats but works with basic info
     try {
       const mostPlayed = await ow.getMostPlayed(tag, platform);
       const results = await ow.getHeroStats(tag, platform);
@@ -97,9 +93,5 @@ express()
       else { res.send(standings); }
     })
   })
-
-
-
-
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
