@@ -57,9 +57,11 @@ express()
             final = [];
             greatest = mP[hero].time;
             final.push(hero, mP[hero])
+
           }else if(greatestTime.length === curTime.length){
             //[ '10', '12' ] [ '0', '0' ]
             for(i=0; i<greatestTime; i++){
+              
               if(greatestTime[i] < curTime[i]){
                 final = [];
                 greatest = mP[hero].time;
