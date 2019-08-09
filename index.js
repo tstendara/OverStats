@@ -5,13 +5,20 @@ const PORT = process.env.PORT || 5000
 const parser = require('body-parser')
 const ow = require('overwatch-stats-api');
 const leaderBoard = require('./top10Players');
+const compression = require('compression');
+
+console.log(leaderBoard);
 
 express()
+  .use(compression())
   .use(parser())
   .use(express.static(path.join(__dirname, 'public')))
 
   .get('/top10', (req, res) => {
-    res.send(leaderBoard);
+      let names = leaderBoard.map((name) => {
+        return name.username;
+      })
+    res.send(names);
   })
 
   .post('/overwatch', (req, res) => {
@@ -29,10 +36,20 @@ express()
     });
   })
 
+  // .post('/basicStats', async(req, res) => {
+  //   let platform = req.body.platform;
+  //   let tag = req.body.username;
+
+  //   const basicStats = await ow.getBasicInfo(tag, platform);
+  //   res.send(basicStats);
+  // })
+
   .post('/stats', async (req, res) => {
     let tag = req.body.username;
     let platform = req.body.platform; 
+    console.log(tag, platform);
 
+    //doesnt work with getherostats but works with basic info
     try {
       const mostPlayed = await ow.getMostPlayed(tag, platform);
       const results = await ow.getHeroStats(tag, platform);
@@ -93,5 +110,9 @@ express()
       else { res.send(standings); }
     })
   })
+
+
+
+
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
