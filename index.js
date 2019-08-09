@@ -13,7 +13,11 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
 
   .get('/top10', (req, res) => {
-    res.send(leaderBoard);
+      let names = leaderBoard.map((name) => {
+        return name.username;
+      })
+    
+    res.send(names);
   })
 
   .post('/overwatch', (req, res) => {
