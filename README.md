@@ -8,7 +8,13 @@ OverStats is a React-Native App created with developed to keep the players infor
 
 ## Getting Started
 
-And if you'd like to check out the App on the phone: 
+If you'd want to check out the app you can either install expo cli or after cloning this repo, you can instead.. 
+
+```sh
+$ npm install
+$ npm run start
+```
+and then go to http://localhost:5000/ and you'll be greated with a preview using expo snack.
 
 This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
