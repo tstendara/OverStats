@@ -36,6 +36,8 @@ express()
     });
   })
 
+  
+
   // .post('/basicStats', async(req, res) => {
   //   let platform = req.body.platform;
   //   let tag = req.body.username;
@@ -43,6 +45,8 @@ express()
   //   const basicStats = await ow.getBasicInfo(tag, platform);
   //   res.send(basicStats);
   // })
+
+
 
   .post('/stats', async (req, res) => {
     let tag = req.body.username;
