@@ -1,6 +1,14 @@
-# node-js-getting-started
+# OverStats
+OverStats is a React-Native App created with developed to keep the players informed of everything Overwatch. This is achieved by using several API's in order to get the information wanted to inform players effectively on their stats. OverStats is not just informative on personal statistics,but OverStats will also keep users informed on OverWatch League status and the Top 10 players on the leaderboard screen. 
+<div>
+<img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1407.PNG" width="195">
+<img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1408.PNG" width="195">
+<img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1409.PNG" width="195">
+</div>
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+## Getting Started
+
+And if you'd like to check out the App on the phone: 
 
 This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
@@ -9,8 +17,6 @@ This application supports the [Getting Started with Node on Heroku](https://devc
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
 ```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
 $ npm install
 $ npm start
 ```
