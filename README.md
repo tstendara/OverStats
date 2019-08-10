@@ -14,7 +14,7 @@ If you'd want to check out the app you can either install expo cli or after clon
 $ npm install
 $ npm run start
 ```
-and then go to http://localhost:5000/ and you'll be greated with a preview using expo snack.
+and then go to http://localhost:5000/ and you'll be greeted with a preview using expo snack.
 
 This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
