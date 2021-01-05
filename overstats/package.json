@@ -9,7 +9,7 @@
     "expo": "^33.0.0",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "axios": "0.19.0",
+    "axios": "0.21.1",
     "body-parser": "1.19.0",
     "oversmash": "1.4.1",
     "overwatch-api": "0.7.5",
