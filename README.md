@@ -1,9 +1,10 @@
 # OverStats
 OverStats is a React-Native App developed to keep the players informed of everything Overwatch. This is achieved by using several API's in order to get the information needed to inform players effectively with their live stats. OverStats is not just informative on personal statistics,but OverStats will also keep users informed on OverWatch League status and the Top 10 players on the leaderboard screen. 
 <div>
-<img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1407.PNG" width="195">
+  <img src="https://ibb.co/cvtYGZx" width="195">
+<!-- <img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1407.PNG" width="195">
 <img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1408.PNG" width="195">
-<img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1409.PNG" width="195">
+<img src="https://searchcomponent.s3.us-east-2.amazonaws.com/searchpngs/IMG_1409.PNG" width="195"> -->
 </div>
 
 ## Getting Started
